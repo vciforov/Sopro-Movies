@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Movie>
+
+@{
+
+    ViewData["Title"] = "List of Movies";
+}
+
+<h1 class="text-center">List of Available Movies</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4 ">
+    </div>
+    <div class="col-md-4 ">
+        <a class="nav-link text-white btn btn-success" asp-controller="Movies" asp-action="Create">Create</a>
+    </div>
+    <div class="col-md-4 ">
+    </div>
+</div>
+<hr />
+
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4" style="margin-top: 50px;">
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" style="width: 100%; height: 350px" src="/movie1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">@item.MovieName</h2><span></span>
+                        <h6 class="card-text">Release Date: @item.ReleaseDate.ToString("dd MMM yy")</h6>
+                        <h6 class="card-text">Description: @item.Description</h6>
+                        <h6 class="card-text">Length: @item.Length</h6>
+                        <h6 class="card-text">Rating: @item.MovieRatings</h6>
+                        <h6><a href="@item.ImdbLink">@item.ImdbLink</a></h6>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-info float-right" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-primary float-left" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+
+

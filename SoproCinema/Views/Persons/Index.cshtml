@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Person>
+
+@{
+
+    ViewData["Title"] = "List of Persons";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model=>model.PersonName)</th>
+                    <th>@Html.DisplayNameFor(model=>model.PersonLastName)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">@Html.DisplayFor(modelItem=>item.PersonName)</td>
+                        <td class="align-middle">@Html.DisplayFor(modelItem=>item.PersonLastName)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
